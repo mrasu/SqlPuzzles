@@ -16,7 +16,7 @@ Base = declarative_base()
 class FiscalYearTable1(Base):
     __tablename__ = "FiscalYearTable1"
 
-    fiscal_year = Column(Integer,  CheckConstraint('fiscal_year > 1'), primary_key=True)
+    fiscal_year = Column(Integer, primary_key=True)
     start_date = Column(Date, nullable=False)
     end_date = Column(Date, nullable=False)
 
@@ -34,7 +34,7 @@ class FiscalYearTable1(Base):
 class FiscalYearTable2(Base):
     __tablename__ = "FiscalYearTable2"
 
-    fiscal_year = Column(Integer,  CheckConstraint('fiscal_year > 1'), primary_key=True)
+    fiscal_year = Column(Integer, primary_key=True)
     start_date = Column(Date, nullable=False)
     end_date = Column(Date, nullable=False)
 
@@ -50,7 +50,7 @@ class FiscalYearTable2(Base):
 class FiscalYearTable3(Base):
     __tablename__ = "FiscalYearTable3"
 
-    fiscal_year = Column(Integer,  CheckConstraint('fiscal_year > 1'), primary_key=True)
+    fiscal_year = Column(Integer, primary_key=True)
     start_date = Column(Date, nullable=False)
     end_date = Column(Date, nullable=False)
 
