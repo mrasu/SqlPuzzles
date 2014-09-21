@@ -4,10 +4,6 @@ from sqlalchemy.exc import InternalError
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker, aliased, Query
 
-"""
-敗北に満ちた文字列制約
-"""
-
 
 engine = create_engine("mysql+pymysql://root@localhost/sql_puzzles", echo=True)
 
