@@ -26,8 +26,8 @@ class Actuals(Base):
 
 actual_sum = Query(func.sum(Actuals.actual_amt)).filter(Actuals.item_nbr == Items.item_nbr).as_scalar()
 estimate_sum = Query(func.sum(Estimates.estimated_amt)).filter(Estimates.item_nbr == Items.item_nbr).as_scalar()
-check_number = Query([case([(func.count(Actuals.item_nbr) == 1, func.max(Actuals.check_nbr))], else_="Mixed")]).\
-    group_by(Actuals.item_nbr).filter(Actuals.item_nbr == Items.item_nbr).as_scalar()
+check_number = Query([case([(func.count(Actuals.item_nbr) == 1, func.max(Actuals.check_nbr))], else_="Mixed")])\
+    .filter(Actuals.item_nbr == Items.item_nbr).group_by(Actuals.item_nbr).as_scalar()
 print("\r\nresult*****")
 result = session.query(Items, actual_sum, estimate_sum, check_number).filter(or_(actual_sum != None, estimate_sum != None)).all()
 print(result)
